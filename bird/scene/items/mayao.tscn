@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vgst0gipv78g"]
+
+[ext_resource type="Texture2D" uid="uid://beuby4evlj25b" path="res://assets/texture/12a011c5e779fbca26785e868e63c5e.png" id="1_3ikav"]
+[ext_resource type="Script" path="res://scripts/mayao.gd" id="2_yghta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e01lf"]
+size = Vector2(15.5, 15.5)
+
+[node name="mayao" type="Sprite2D"]
+texture = ExtResource("1_3ikav")
+script = ExtResource("2_yghta")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_e01lf")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://ck3bru6pb502o"]
+
+[ext_resource type="Script" path="res://scripts/bird.gd" id="1_b25u7"]
+[ext_resource type="Texture2D" uid="uid://bapgr3fclqxek" path="res://assets/texture/f60d0aef79097c51da98e469fbbb451.png" id="2_eqr8o"]
+[ext_resource type="Texture2D" uid="uid://ofjprcqa17ws" path="res://assets/texture/cae47e6de4f3551186846acf037b016.png" id="3_ist54"]
+[ext_resource type="Texture2D" uid="uid://cld65k0ii7j4a" path="res://assets/texture/aba2ef21bc1388f6e87544d15b234e0.png" id="4_crvgs"]
+[ext_resource type="Texture2D" uid="uid://c2nnikkxj2cxr" path="res://assets/texture/0e8f5e9041206c0dee9b28d66cce2db.png" id="5_03kmo"]
+[ext_resource type="Texture2D" uid="uid://cidcbklbhixw" path="res://assets/texture/fe1b93281d1dab0d92525d5c30acf70.png" id="6_yht4t"]
+[ext_resource type="Texture2D" uid="uid://56j3c51coj0s" path="res://assets/texture/3dd32d86de4776f6cd5c63cd5ec73cc.png" id="7_csfp3"]
+[ext_resource type="Texture2D" uid="uid://uream0m2siwl" path="res://assets/texture/light.webp" id="8_js4is"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ydid0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_eqr8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ist54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_crvgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ist54")
+}],
+"loop": true,
+"name": &"left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_03kmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yht4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_csfp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yht4t")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvyk3"]
+size = Vector2(10, 9.5)
+
+[node name="bird" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_b25u7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.3125, 0.3125)
+sprite_frames = SubResource("SpriteFrames_ydid0")
+animation = &"right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.75)
+shape = SubResource("RectangleShape2D_uvyk3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, -1.5)
+scale = Vector2(0.0859375, 0.0898438)
+color = Color(1, 0.831373, 0.392157, 1)
+texture = ExtResource("8_js4is")

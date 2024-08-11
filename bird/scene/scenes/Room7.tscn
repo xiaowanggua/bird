@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1mn3ypp3aux6"]
+
+[ext_resource type="TileSet" uid="uid://dnft612t4ywn" path="res://assets/texture/tileset.tres" id="1_07y41"]
+[ext_resource type="PackedScene" uid="uid://bgvw47b1yapm2" path="res://scene/scenes/Doors.tscn" id="2_sgxr3"]
+[ext_resource type="Script" path="res://scripts/Room7.gd" id="2_tijfc"]
+[ext_resource type="PackedScene" uid="uid://x2qmdv6guov7" path="res://scene/scenes/Doors2.tscn" id="3_s6mut"]
+[ext_resource type="Texture2D" uid="uid://be7kpcdn1p041" path="res://assets/texture/75071a755e87ee7d935877ee14cbc7f.png" id="5_swyl2"]
+[ext_resource type="Texture2D" uid="uid://dj4a4ed2pvhha" path="res://assets/texture/fd561f645e423a283033cf37499807a.png" id="6_yai17"]
+[ext_resource type="Script" path="res://scene/scenes/hole.gd" id="7_7oy57"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byawi"]
+size = Vector2(385, 155)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pbp2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_swyl2")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_yai17")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Room7" type="TileMap"]
+tile_set = ExtResource("1_07y41")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 22, 0, -1, 22, 0, 65535, 22, 0, 0, 22, 0, 65536, 22, 0, 131071, 22, 0, -65538, 22, 0, -131074, 22, 0, -196610, 8, 0, -65537, 22, 0, 65534, 22, 0, -65536, 22, 0, -65535, 22, 0, -65534, 22, 0, -65533, 22, 0, 3, 22, 0, 65538, 22, 0, 65537, 22, 0, 131072, 8, 0, 196607, 8, 0, -131072, 22, 0, -196608, 22, 0, -327684, 8, 0, -262148, 8, 0, -196612, 8, 0, -131076, 22, 0, -65540, 22, 0, -4, 22, 0, 65532, 22, 0, 131068, 22, 0, 196604, 8, 0, 262140, 8, 0, 327676, 8, 0, -327683, 8, 0, -262147, 8, 0, -196611, 8, 0, -131075, 22, 0, -65539, 22, 0, -3, 22, 0, 65533, 22, 0, 131069, 22, 0, 196605, 8, 0, 262141, 8, 0, 327677, 8, 0, -327682, 8, 0, -262146, 8, 0, 131070, 22, 0, 196606, 8, 0, 262142, 8, 0, 327678, 8, 0, -327681, 8, 0, -262145, 8, 0, -196609, 8, 0, -131073, 22, 0, 262143, 8, 0, 327679, 8, 0, -393216, 8, 0, -327680, 8, 0, -262144, 8, 0, 196608, 8, 0, 262144, 8, 0, -393215, 8, 0, -327679, 8, 0, -262143, 8, 0, -196607, 22, 0, -131071, 22, 0, 1, 22, 0, 131073, 8, 0, 196609, 8, 0, 262145, 8, 0, -393214, 8, 0, -327678, 8, 0, -262142, 8, 0, -196606, 22, 0, -131070, 22, 0, 2, 22, 0, 131074, 8, 0, 196610, 8, 0, 262146, 8, 0, -393213, 8, 0, -327677, 8, 0, -262141, 8, 0, -196605, 22, 0, -131069, 22, 0, 65539, 22, 0, 131075, 8, 0, 196611, 8, 0, 262147, 8, 0, -393212, 8, 0, -327676, 8, 0, -262140, 8, 0, -196604, 22, 0, -131068, 22, 0, -65532, 22, 0, 4, 22, 0, 65540, 22, 0, 131076, 8, 0, 196612, 8, 0, 262148, 8, 0, -327685, 8, 0, -262149, 8, 0, -196613, 8, 0, -131077, 22, 0, -65541, 22, 0, -5, 22, 0, 65531, 22, 0, 131067, 22, 0, 196603, 8, 0, 262139, 8, 0, 327675, 8, 0, 393211, 8, 0, 393212, 8, 0, 393213, 8, 0, 393214, 8, 0, 393215, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, -393211, 8, 0, -327675, 8, 0, -262139, 8, 0, -196603, 22, 0, -131067, 22, 0, -65531, 22, 0, 5, 22, 0, 65541, 22, 0, 131077, 8, 0, 196613, 8, 0, 262149, 8, 0, 327685, 8, 0, -327686, 8, 0, -262150, 8, 0, -196614, 8, 0, -131078, 22, 0, -65542, 22, 0, -6, 22, 0, 65530, 22, 0, 131066, 22, 0, 196602, 8, 0, 262138, 8, 0, 327674, 8, 0, 393210, 8, 0, -327687, 13, 0, -393222, 12, 0, -393220, 12, 0, -393219, 12, 0, -393218, 12, 0, -393217, 18, 0, -458752, 19, 0, -458751, 12, 0, -458750, 12, 0, -458749, 12, 0, -458748, 12, 0, -458747, 12, 0, 458746, 18, 0, 458747, 19, 0, 458748, 12, 0, 458749, 12, 0, 458750, 12, 0, 458751, 18, 0, 393216, 19, 0, 393217, 12, 0, 393218, 12, 0, 393219, 12, 0, 393220, 12, 0, 393221, 12, 0, -262151, 13, 0, -196615, 13, 0, -131079, 13, 0, -65543, 13, 0, -7, 13, 0, 65529, 13, 0, 131065, 13, 0, 196601, 13, 0, 262137, 13, 0, 327673, 13, 0, 393209, 13, 0, -393210, 14, 0, -327674, 14, 0, -262138, 14, 0, -196602, 14, 0, -131066, 14, 0, -65530, 14, 0, 6, 14, 0, 65542, 14, 0, 131078, 14, 0, 196614, 14, 0, 262150, 14, 0, 327686, 14, 0, 458745, 17, 0, -393223, 17, 0, 393222, 15, 0, -458746, 15, 0, -393221, 12, 0)
+layer_1/tile_data = PackedInt32Array(-7, 20, 1342177280, 458747, 12, 0)
+script = ExtResource("2_tijfc")
+
+[node name="Node2D" parent="." instance=ExtResource("2_sgxr3")]
+position = Vector2(1, 183)
+to_room = "Room10"
+positions = Vector2(0, -176)
+reduce = 2
+
+[node name="Node2D2" parent="." instance=ExtResource("2_sgxr3")]
+position = Vector2(-1, -184)
+to_room = "Room4"
+positions = Vector2(0, 173)
+reduce = 2
+
+[node name="Node2D3" parent="." instance=ExtResource("3_s6mut")]
+position = Vector2(-186, -14)
+who = "bird"
+to_room = "Room6"
+positions = Vector2(175, -15)
+keyid = 3
+reduce = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Area2D"]
+tile_set = ExtResource("1_07y41")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65542, 21, 0, -65541, 21, 0, -65540, 21, 0, -65539, 21, 0, -65538, 21, 0, -65537, 21, 0, -131072, 21, 0, -131071, 21, 0, -131070, 21, 0, -131069, 21, 0, -131068, 21, 0, -131067, 21, 0, -196603, 21, 0, -196604, 21, 0, -196605, 21, 0, -196606, 21, 0, -196607, 21, 0, -196608, 21, 0, -131073, 21, 0, -131074, 21, 0, -131075, 21, 0, -131076, 21, 0, -131077, 21, 0, -131078, 21, 0, -6, 21, 0, 65530, 21, 0, 131066, 21, 0, 131067, 21, 0, 131068, 21, 0, 131069, 21, 0, 131070, 21, 0, 131071, 21, 0, 65536, 21, 0, 65537, 21, 0, 65538, 21, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 5, 21, 0, -65531, 21, 0, -65532, 21, 0, 4, 21, 0, 3, 21, 0, -65533, 21, 0, -65534, 21, 0, 2, 21, 0, 1, 21, 0, 0, 21, 0, -65535, 21, 0, 65535, 21, 0, -1, 21, 0, -65536, 21, 0, -2, 21, 0, 65534, 21, 0, 65533, 21, 0, 65532, 21, 0, -4, 21, 0, -3, 21, 0, -5, 21, 0, 65531, 21, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -15.5)
+shape = SubResource("RectangleShape2D_byawi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-144, -208)
+sprite_frames = SubResource("SpriteFrames_pbp2d")
+animation = &"close"
+script = ExtResource("7_7oy57")
+
+[node name="Node2D4" parent="." instance=ExtResource("2_sgxr3")]
+position = Vector2(-144, -185)
+to_room = "Room3"
+positions = Vector2(150, 173)
+
+[node name="Node2D5" parent="." instance=ExtResource("2_sgxr3")]
+position = Vector2(-176, 183)
+to_room = "Room9"
+positions = Vector2(173, -173)
+keyid = 1
+warmtext = "B门上锁了"
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

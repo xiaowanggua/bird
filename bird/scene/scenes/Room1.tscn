@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcr2mbwh3eerv"]
+
+[ext_resource type="TileSet" uid="uid://dnft612t4ywn" path="res://assets/texture/tileset.tres" id="1_5v11l"]
+[ext_resource type="Script" path="res://scripts/Room1.gd" id="2_6nksm"]
+[ext_resource type="PackedScene" uid="uid://bgvw47b1yapm2" path="res://scene/scenes/Doors.tscn" id="3_hf64a"]
+[ext_resource type="FontFile" uid="uid://diglr28td3pjc" path="res://assets/fonts/SourceHanSansCN-Normal.otf" id="3_wj5dl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktaa5"]
+size = Vector2(61, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1x8oe"]
+font = ExtResource("3_wj5dl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_p85jd"]
+font = ExtResource("3_wj5dl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_321gl"]
+font = ExtResource("3_wj5dl")
+
+[node name="Room1" type="TileMap"]
+tile_set = ExtResource("1_5v11l")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196612, 8, 0, -131076, 8, 0, -65540, 8, 0, -4, 8, 0, 65532, 8, 0, 131068, 8, 0, 196604, 8, 0, 262140, 8, 0, -196611, 8, 0, -131075, 8, 0, -65539, 8, 0, -3, 8, 0, 65533, 8, 0, 131069, 8, 0, 196605, 8, 0, 262141, 8, 0, -196610, 8, 0, -131074, 8, 0, -65538, 8, 0, -2, 8, 0, 65534, 8, 0, 131070, 8, 0, 196606, 8, 0, 262142, 8, 0, -196609, 8, 0, -131073, 8, 0, -65537, 8, 0, -1, 8, 0, 65535, 8, 0, 131071, 8, 0, 196607, 8, 0, 262143, 8, 0, -262144, 8, 0, -196608, 8, 0, -131072, 8, 0, -65536, 8, 0, 0, 8, 0, 65536, 8, 0, 131072, 8, 0, 196608, 8, 0, -262143, 8, 0, -196607, 8, 0, -131071, 8, 0, -65535, 8, 0, 1, 8, 0, 65537, 8, 0, 131073, 8, 0, 196609, 8, 0, -262142, 8, 0, -196606, 8, 0, -131070, 8, 0, -65534, 8, 0, 2, 8, 0, 65538, 8, 0, 131074, 8, 0, 196610, 8, 0, -262141, 8, 0, -196605, 8, 0, -131069, 8, 0, -65533, 8, 0, 3, 8, 0, 65539, 8, 0, 131075, 8, 0, 196611, 8, 0, -262140, 8, 0, -196604, 8, 0, -131068, 8, 0, -65532, 8, 0, 4, 8, 0, 65540, 8, 0, 131076, 8, 0, 196612, 8, 0, -196613, 8, 0, -131077, 8, 0, -65541, 8, 0, -5, 8, 0, 65531, 8, 0, 131067, 8, 0, 196603, 8, 0, 262139, 8, 0, 327675, 12, 0, 327676, 12, 0, 327677, 12, 0, 327678, 12, 0, 262145, 12, 0, 262146, 12, 0, 262147, 12, 0, 262148, 12, 0, -262149, 12, 0, -262148, 12, 0, -262147, 12, 0, -262146, 12, 0, -262145, 12, 0, -327680, 12, 0, -327679, 12, 0, -327678, 12, 0, -327677, 12, 0, -327676, 12, 0, -262150, 17, 0, -196614, 13, 0, -131078, 13, 0, -65542, 13, 0, -6, 13, 0, 65530, 13, 0, 131066, 13, 0, 196602, 13, 0, 262138, 13, 0, 327674, 17, 0, -262139, 14, 0, -196603, 14, 0, -131067, 14, 0, -65531, 14, 0, 5, 14, 0, 65541, 14, 0, 131077, 14, 0, 196613, 14, 0, 262149, 15, 0, 327679, 8, 0, 262144, 8, 0, -327675, 15, 0)
+layer_1/tile_data = PackedInt32Array(327679, 18, 0, 262144, 19, 0, 262148, 20, 0)
+script = ExtResource("2_6nksm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 121)
+shape = SubResource("RectangleShape2D_ktaa5")
+
+[node name="Label" type="Label" parent="Area2D"]
+visible = false
+offset_left = -37.0
+offset_top = 161.0
+offset_right = 36.0
+offset_bottom = 184.0
+text = "按下E开门"
+label_settings = SubResource("LabelSettings_1x8oe")
+
+[node name="Node2D" parent="." instance=ExtResource("3_hf64a")]
+position = Vector2(147, 124)
+who = "bird"
+to_room = "Room2"
+reduce = 0
+
+[node name="Label" type="Label" parent="."]
+offset_left = -167.0
+offset_top = -31.0
+offset_right = 174.0
+offset_bottom = 20.0
+text = "WASD移动，q切换控制角色，r放置，e互动物品"
+label_settings = SubResource("LabelSettings_p85jd")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -194.0
+offset_top = 2.0
+offset_right = 231.0
+offset_bottom = 28.0
+text = "进入房间会消耗2格时间，时间消耗完或人物死亡则循环"
+label_settings = SubResource("LabelSettings_321gl")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = -107.0
+offset_top = 36.0
+offset_right = 286.0
+offset_bottom = 62.0
+text = "进入单门和洞窟消耗一格时间"
+label_settings = SubResource("LabelSettings_321gl")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]

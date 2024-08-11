@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://hpm8yfqorrgc"]
+
+[ext_resource type="TileSet" uid="uid://dnft612t4ywn" path="res://assets/texture/tileset.tres" id="1_07y41"]
+[ext_resource type="PackedScene" uid="uid://bgvw47b1yapm2" path="res://scene/scenes/Doors.tscn" id="2_o1bni"]
+[ext_resource type="PackedScene" uid="uid://dsrwibyd8es6p" path="res://scene/items/key.tscn" id="3_8dcgh"]
+
+[node name="Room12" type="TileMap"]
+position = Vector2(3, -3)
+tile_set = ExtResource("1_07y41")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 8, 0, -1, 8, 0, 65535, 8, 0, 0, 8, 0, 65536, 8, 0, 131071, 8, 0, -65538, 8, 0, -131074, 8, 0, -196610, 8, 0, -65537, 8, 0, 65534, 8, 0, -65536, 8, 0, -65535, 8, 0, 65537, 8, 0, 131072, 8, 0, 196607, 8, 0, -131072, 8, 0, -196608, 8, 0, -327683, 13, 0, -262147, 13, 0, -196611, 13, 0, -131075, 13, 0, -65539, 13, 0, -3, 13, 0, 65533, 13, 0, 131069, 13, 0, 196605, 13, 0, 262141, 13, 0, 327677, 13, 0, -327682, 8, 0, -262146, 8, 0, 131070, 8, 0, 196606, 8, 0, 262142, 8, 0, 327678, 8, 0, -327681, 8, 0, -262145, 8, 0, -196609, 8, 0, -131073, 8, 0, 262143, 8, 0, 327679, 8, 0, -393216, 8, 0, -327680, 8, 0, -262144, 8, 0, 196608, 8, 0, 262144, 8, 0, -393215, 8, 0, -327679, 8, 0, -262143, 8, 0, -196607, 8, 0, -131071, 8, 0, 1, 8, 0, 131073, 8, 0, 196609, 8, 0, 262145, 8, 0, 393213, 13, 0, 393214, 8, 0, 393215, 8, 0, 327680, 8, 0, 327681, 8, 0, -393219, 17, 0, -393218, 12, 0, -393217, 18, 0, -458752, 19, 0, -458751, 12, 0, -458750, 15, 0, 458749, 17, 0, 458750, 12, 0, 458751, 18, 0, 393216, 19, 0, 393217, 12, 0, 393218, 15, 0, 327682, 14, 0, 262146, 14, 0, 196610, 14, 0, 131074, 14, 0, 65538, 14, 0, 2, 14, 0, -65534, 14, 0, -131070, 14, 0, -196606, 14, 0, -262142, 14, 0, -327678, 14, 0, -393214, 14, 0)
+layer_1/tile_data = PackedInt32Array(-393218, 20, 0, -458751, 4, 0)
+
+[node name="Node2D" parent="." instance=ExtResource("2_o1bni")]
+position = Vector2(0, -185)
+to_room = "Room3"
+positions = Vector2(0, 176)
+needkeyid = 4
+reduce = 2
+
+[node name="Node2D2" parent="." instance=ExtResource("2_o1bni")]
+position = Vector2(-4, 186)
+to_room = "Room6"
+positions = Vector2(0, -176)
+reduce = 2
+
+[node name="Node2D3" parent="." instance=ExtResource("2_o1bni")]
+position = Vector2(-54, -186)
+who = "bird"
+to_room = "Room3"
+positions = Vector2(0, 176)
+reduce = 0
+
+[node name="Key" parent="." instance=ExtResource("3_8dcgh")]
+visible = false
+position = Vector2(48, -194)
+scale = Vector2(1.50391, 0.707032)
+keyid = 4

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0bhxd54f27c4"]
+
+[ext_resource type="Script" path="res://scripts/guard.gd" id="1_6gda0"]
+[ext_resource type="Texture2D" uid="uid://culq84q42us6n" path="res://assets/texture/a5be207b90332ee483b72d146ea8ed0.png" id="2_cbau3"]
+[ext_resource type="Texture2D" uid="uid://ckav07uc1x0gc" path="res://assets/texture/1b28bf8040efe7e07e91d5398fa8491.png" id="3_kbx36"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cs7mv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbau3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kbx36")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufuug"]
+size = Vector2(9, 24)
+
+[node name="guard" type="CharacterBody2D"]
+script = ExtResource("1_6gda0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(12.7875, 0)
+scale = Vector2(0.681903, 1)
+polygon = PackedVector2Array(-14.3532, -2, -112.608, -27, -114.074, 17)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+color = Color(1, 0, 0, 0.0627451)
+polygon = PackedVector2Array(-66, -29, -67, 18, 1, -1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cs7mv")
+animation = &"fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_ufuug")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

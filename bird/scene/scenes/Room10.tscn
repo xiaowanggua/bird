@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6bcjrygtlpca"]
+
+[ext_resource type="TileSet" uid="uid://dnft612t4ywn" path="res://assets/texture/tileset.tres" id="1_07y41"]
+[ext_resource type="PackedScene" uid="uid://bgvw47b1yapm2" path="res://scene/scenes/Doors.tscn" id="2_kyuwp"]
+[ext_resource type="PackedScene" uid="uid://x2qmdv6guov7" path="res://scene/scenes/Doors2.tscn" id="3_olhd0"]
+[ext_resource type="PackedScene" uid="uid://b0bhxd54f27c4" path="res://scene/characters/guard.tscn" id="4_tua31"]
+[ext_resource type="Script" path="res://scene/scenes/lastButton.gd" id="5_sbm37"]
+
+[sub_resource type="Curve2D" id="Curve2D_2bjly"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 180, 0, 0, 0, 0, 81, 181, 0, 0, 0, 0, 72, -78, 0, 0, 0, 0, -1, -79, 0, 0, 0, 0, 0, 1)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn3ed"]
+size = Vector2(30, 30)
+
+[node name="Room10" type="TileMap"]
+tile_set = ExtResource("1_07y41")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 8, 0, -1, 8, 0, 65535, 8, 0, 0, 8, 0, 65536, 8, 0, 131071, 8, 0, -65538, 8, 0, -131074, 8, 0, -196610, 12, 0, -65537, 8, 0, 65534, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -65533, 8, 0, 3, 8, 0, 65538, 8, 0, 65537, 8, 0, 131072, 8, 0, 196607, 8, 0, -131072, 8, 0, -196608, 8, 0, -327684, 8, 0, -262148, 8, 0, -196612, 12, 0, -131076, 8, 0, -65540, 8, 0, -4, 8, 0, 65532, 8, 0, 131068, 8, 0, 196604, 8, 0, 262140, 8, 0, 327676, 8, 0, -327683, 8, 0, -262147, 8, 0, -196611, 12, 0, -131075, 8, 0, -65539, 8, 0, -3, 8, 0, 65533, 8, 0, 131069, 8, 0, 196605, 8, 0, 262141, 8, 0, 327677, 8, 0, -327682, 8, 0, -262146, 8, 0, 131070, 8, 0, 196606, 8, 0, 262142, 8, 0, 327678, 8, 0, -327681, 8, 0, -262145, 8, 0, -196609, 12, 0, -131073, 8, 0, 262143, 8, 0, 327679, 8, 0, -393216, 8, 0, -327680, 8, 0, -262144, 12, 0, 196608, 8, 0, 262144, 8, 0, -393215, 8, 0, -327679, 8, 0, -262143, 12, 0, -196607, 8, 0, -131071, 8, 0, 1, 8, 0, 131073, 8, 0, 196609, 8, 0, 262145, 8, 0, -393214, 8, 0, -327678, 8, 0, -262142, 12, 0, -196606, 8, 0, -131070, 8, 0, 2, 2, 0, 131074, 8, 0, 196610, 8, 0, 262146, 8, 0, -393213, 8, 0, -327677, 8, 0, -262141, 12, 0, -196605, 8, 0, -131069, 8, 0, 65539, 8, 0, 131075, 8, 0, 196611, 8, 0, 262147, 8, 0, -393212, 8, 0, -327676, 8, 0, -262140, 8, 0, -196604, 8, 0, -131068, 8, 0, -65532, 8, 0, 4, 8, 0, 65540, 8, 0, 131076, 8, 0, 196612, 8, 0, 262148, 8, 0, -327685, 8, 0, -262149, 8, 0, -196613, 8, 0, -131077, 8, 0, -65541, 8, 0, -5, 8, 0, 65531, 8, 0, 131067, 8, 0, 196603, 8, 0, 262139, 8, 0, 327675, 8, 0, 393211, 8, 0, 393212, 8, 0, 393213, 8, 0, 393214, 8, 0, 393215, 8, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 8, 0, 327684, 8, 0, -393211, 8, 0, -327675, 8, 0, -262139, 8, 0, -196603, 8, 0, -131067, 8, 0, -65531, 8, 0, 5, 8, 0, 65541, 8, 0, 131077, 8, 0, 196613, 8, 0, 262149, 8, 0, 327685, 8, 0, -327686, 8, 0, -262150, 8, 0, -196614, 8, 0, -131078, 8, 0, -65542, 8, 0, -6, 8, 0, 65530, 8, 0, 131066, 8, 0, 196602, 8, 0, 262138, 8, 0, 327674, 8, 0, 393210, 8, 0, -327687, 13, 0, -393222, 12, 0, -393221, 12, 0, -393220, 12, 0, -393219, 12, 0, -393218, 12, 0, -393217, 18, 0, -458752, 19, 0, -458751, 12, 0, -458750, 12, 0, -458749, 12, 0, -458748, 12, 0, -458747, 12, 0, 458746, 12, 0, 458747, 12, 0, 458748, 12, 0, 458749, 12, 0, 458750, 12, 0, 458751, 12, 0, 393216, 12, 0, 393217, 12, 0, 393218, 12, 0, 393219, 12, 0, 393220, 12, 0, 393221, 12, 0, -262151, 13, 0, -196615, 13, 0, -131079, 13, 0, -65543, 13, 0, -7, 13, 0, 65529, 13, 0, 131065, 13, 0, 196601, 13, 0, 262137, 13, 0, 327673, 13, 0, 393209, 13, 0, -393210, 14, 0, -327674, 14, 0, -262138, 14, 0, -196602, 14, 0, -131066, 14, 0, -65530, 14, 0, 6, 14, 0, 65542, 14, 0, 131078, 14, 0, 196614, 14, 0, 262150, 14, 0, 327686, 14, 0, 458745, 17, 0, -393223, 17, 0, 393222, 15, 0, -458746, 15, 0)
+layer_1/tile_data = PackedInt32Array(65529, 20, 1342177280)
+
+[node name="Node2D" parent="." instance=ExtResource("2_kyuwp")]
+position = Vector2(-4, -183)
+to_room = "Room7"
+positions = Vector2(0, 176)
+
+[node name="Node2D2" parent="." instance=ExtResource("3_olhd0")]
+position = Vector2(-184, 19)
+who = "bird"
+to_room = "Room9"
+positions = Vector2(176, -15)
+reduce = 0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2bjly")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 1)
+rotation = 1.57638
+
+[node name="guard" parent="Path2D/PathFollow2D" instance=ExtResource("4_tua31")]
+position = Vector2(-0.999984, 0.00558652)
+rotation = -1.57638
+speed = 999
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_sbm37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(80, 16)
+shape = SubResource("RectangleShape2D_mn3ed")
+
+[node name="ProgressBar" type="ProgressBar" parent="Area2D"]
+offset_left = -67.0
+offset_top = -125.0
+offset_right = 70.0
+offset_bottom = -98.0
+
+[connection signal="body_shape_entered" from="Area2D" to="Area2D" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area2D" to="Area2D" method="_on_body_shape_exited"]

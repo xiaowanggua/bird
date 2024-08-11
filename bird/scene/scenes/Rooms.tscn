@@ -1,0 +1,127 @@
+[gd_scene load_steps=17 format=3 uid="uid://cy1hqoh3jdsm4"]
+
+[ext_resource type="Script" path="res://scripts/rooms.gd" id="1_cvicf"]
+[ext_resource type="PackedScene" uid="uid://w6rcocp5f4cp" path="res://scene/characters/gril.tscn" id="2_3qx7d"]
+[ext_resource type="PackedScene" uid="uid://ck3bru6pb502o" path="res://scene/characters/bird.tscn" id="3_hafst"]
+[ext_resource type="PackedScene" uid="uid://dcr2mbwh3eerv" path="res://scene/scenes/Room1.tscn" id="4_6ig8i"]
+[ext_resource type="PackedScene" uid="uid://vgst0gipv78g" path="res://scene/items/mayao.tscn" id="4_fo358"]
+[ext_resource type="Texture2D" uid="uid://phjoeogwk86d" path="res://assets/texture/aaf4983b58f2ee6966c4658f2ada8db.jpg" id="5_14rcd"]
+[ext_resource type="AudioStream" uid="uid://bt6rrf1uwbpa8" path="res://assets/sounds/New Composition #11.mp3" id="5_gbul8"]
+[ext_resource type="PackedScene" uid="uid://cwlugc62o27kd" path="res://scene/items/clocks.tscn" id="6_da5ls"]
+[ext_resource type="Texture2D" uid="uid://wq6syyg7mqya" path="res://assets/texture/icons/3b3f4b43f405d23403504edc5cd9ab9.png" id="6_lsygc"]
+[ext_resource type="AudioStream" uid="uid://dxkbwh7paov3g" path="res://assets/sounds/metal-ringing.wav" id="6_yl1kp"]
+[ext_resource type="Texture2D" uid="uid://c84nxt8qyu5a6" path="res://assets/texture/icons/60a6db6724120c8550ca8e01498efa6.png" id="7_ur82n"]
+[ext_resource type="Texture2D" uid="uid://dutdjmmiaxx6w" path="res://assets/texture/icons/dca6f97f8c218d42d587fb87a61f801.png" id="8_rbwhq"]
+[ext_resource type="Texture2D" uid="uid://b72ujidi1n01t" path="res://assets/texture/icons/e52a8194b27c7a5502ede3427be77fc.png" id="9_8lr0w"]
+[ext_resource type="AudioStream" uid="uid://cmcmydb8m1302" path="res://assets/sounds/教堂钟声.mp3" id="9_8rg2r"]
+[ext_resource type="FontFile" uid="uid://diglr28td3pjc" path="res://assets/fonts/SourceHanSansCN-Normal.otf" id="11_6cupc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtx0a"]
+font = ExtResource("11_6cupc")
+
+[node name="Rooms" type="Node2D"]
+position = Vector2(0, -1)
+scale = Vector2(0.998691, 1.00599)
+script = ExtResource("1_cvicf")
+girl = ExtResource("2_3qx7d")
+bird = ExtResource("3_hafst")
+mayao = ExtResource("4_fo358")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="Room1" parent="." instance=ExtResource("4_6ig8i")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="clocks" parent="CanvasLayer/Control" instance=ExtResource("6_da5ls")]
+position = Vector2(54, 34)
+
+[node name="ItemList2" type="ItemList" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 1047.0
+offset_top = 18.0
+offset_right = 1138.0
+offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("11_6cupc")
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 17.0
+offset_right = 1137.0
+offset_bottom = 128.0
+item_count = 5
+max_columns = 5
+item_0/text = ""
+item_0/icon = ExtResource("7_ur82n")
+item_0/selectable = false
+item_0/disabled = true
+item_1/text = ""
+item_1/icon = ExtResource("6_lsygc")
+item_1/selectable = false
+item_1/disabled = true
+item_2/text = ""
+item_2/icon = ExtResource("8_rbwhq")
+item_2/selectable = false
+item_2/disabled = true
+item_3/text = "A"
+item_3/icon = ExtResource("9_8lr0w")
+item_3/selectable = false
+item_3/disabled = true
+item_4/text = ""
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_left = 344.0
+offset_top = 514.0
+offset_right = 821.0
+offset_bottom = 629.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 22.0
+offset_top = 8.0
+offset_right = 457.0
+offset_bottom = 107.0
+label_settings = SubResource("LabelSettings_rtx0a")
+
+[node name="e" type="Sprite2D" parent="CanvasLayer/Panel"]
+visible = false
+position = Vector2(48, 81)
+scale = Vector2(0.0804597, 0.0872549)
+texture = ExtResource("5_14rcd")
+
+[node name="black" type="Polygon2D" parent="CanvasLayer"]
+visible = false
+z_index = 1
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(1212, 700, 1207, -105, -100, -114, -113, 820)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gbul8")
+
+[node name="ding" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_yl1kp")
+
+[node name="zhong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_8rg2r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.364116, 0.364144, 0.30453, 1)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
